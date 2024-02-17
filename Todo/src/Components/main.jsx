@@ -7,6 +7,12 @@ function main() {
     const [iscompleted, setiscompleted] = useState(false);
     const [task, settask] = useState([]);
 
+    /* save tasks in localstorage */
+    useEffect(()=>{
+        if(task.length > 0){
+            localStorage.setItem("array",JSON.stringify(task))
+        }
+    },[task])
     /* function to add task */
     const addtask = () => {
         const newTask = {
